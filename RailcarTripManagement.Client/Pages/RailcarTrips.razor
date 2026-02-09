@@ -237,7 +237,12 @@
                                         var evt = tripEvents[i];
                                         var isStartEvent = evt.EventCode == "W";
                                         var isEndEvent = evt.EventCode == "Z";
-                                        var rowClass = isStartEvent ? "table-success" : (isEndEvent ? "table-warning" : "");
+                                        var isArrived = evt.EventCode == "A";
+                                        var isDeparted = evt.EventCode == "D";
+                                        var rowClass = isStartEvent ? "table-success" : 
+                                                      (isEndEvent ? "table-warning" : 
+                                                      (isArrived ? "table-info" : 
+                                                      (isDeparted ? "table-primary" : "")));
 
                                         <tr class="@rowClass">
                                             <td>@(i + 1)</td>
@@ -272,7 +277,12 @@
                                     {
                                         var isW = kvp.Key == "W";
                                         var isZ = kvp.Key == "Z";
-                                        var badgeClass = isW ? "bg-success" : (isZ ? "bg-warning text-dark" : "bg-secondary");
+                                        var isA = kvp.Key == "A";
+                                        var isD = kvp.Key == "D";
+                                        var badgeClass = isW ? "bg-success" : 
+                                                        (isZ ? "bg-warning text-dark" : 
+                                                        (isA ? "bg-info" : 
+                                                        (isD ? "bg-primary" : "bg-secondary")));
                                         
                                         <span class="badge @badgeClass ms-2">
                                             @kvp.Key = @kvp.Value.EventDescription
@@ -283,6 +293,8 @@
                                 else
                                 {
                                     <span class="badge bg-success ms-2">W = Released (Trip Start)</span>
+                                    <span class="badge bg-info ms-2">A = Arrived</span>
+                                    <span class="badge bg-primary ms-2">D = Departed</span>
                                     <span class="badge bg-warning text-dark ms-2">Z = Placed (Trip End)</span>
                                 }
                             </small>

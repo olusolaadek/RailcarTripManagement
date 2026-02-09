@@ -1,17 +1,19 @@
-﻿
-### Client (Blazor WASM)
+﻿### Client (Blazor WASM)
+
 - Railcar Trips page
 - CSV upload UI
 - Trips grid
 - Optional trip details (events list)
 
 ### Server (ASP.NET Core)
+
 - API endpoints
 - CSV parsing and trip processing logic
 - EF Core data access
 - Database seeding
 
 ### Shared
+
 - DTOs shared between client and server
 
 ---
@@ -21,6 +23,7 @@
 **SQLite** was chosen for this assessment.
 
 ### Rationale
+
 - Zero configuration for reviewers
 - Portable and lightweight
 - Works well with EF Core
@@ -33,59 +36,69 @@ The data access layer is provider-agnostic. Switching to SQL Server or PostgreSQ
 ## Database Schema
 
 ### City
-| Column | Description |
-|------|-------------|
-| CityId | Primary key |
-| CityName | City name |
+
+| Column     | Description                     |
+| ---------- | ------------------------------- |
+| CityId     | Primary key                     |
+| CityName   | City name                       |
 | TimeZoneId | Windows time zone ID (from CSV) |
 
 ### Trip
-| Column | Description |
-|------|-------------|
-| TripId | Primary key |
-| EquipmentId | Railcar/equipment identifier |
-| OriginCityId | City where trip started |
-| DestinationCityId | City where trip ended |
-| StartUtc | Trip start time (UTC) |
-| EndUtc | Trip end time (UTC) |
-| TotalTripHours | Calculated duration |
+
+| Column            | Description                  |
+| ----------------- | ---------------------------- |
+| TripId            | Primary key                  |
+| EquipmentId       | Railcar/equipment identifier |
+| OriginCityId      | City where trip started      |
+| DestinationCityId | City where trip ended        |
+| StartUtc          | Trip start time (UTC)        |
+| EndUtc            | Trip end time (UTC)          |
+| TotalTripHours    | Calculated duration          |
 
 ### EquipmentEvent (used for bonus view)
-| Column | Description |
-|------|-------------|
-| EventId | Primary key |
-| EquipmentId | Equipment identifier |
-| CityId | Event city |
-| EventCode | Event code (W, Z, etc.) |
+
+| Column         | Description              |
+| -------------- | ------------------------ |
+| EventId        | Primary key              |
+| EquipmentId    | Equipment identifier     |
+| CityId         | Event city               |
+| EventCode      | Event code (W, Z, etc.)  |
 | EventTimeLocal | Original local timestamp |
-| EventTimeUtc | Converted UTC timestamp |
-| TripId | Nullable FK to Trip |
+| EventTimeUtc   | Converted UTC timestamp  |
+| TripId         | Nullable FK to Trip      |
 
 ### EventCodeDefinition (reference data)
-| Column | Description |
-|------|-------------|
-| EventCode | Primary key (W, A, D, Z) |
+
+| Column           | Description                                 |
+| ---------------- | ------------------------------------------- |
+| EventCode        | Primary key (W, A, D, Z)                    |
 | EventDescription | Short description (Released, Arrived, etc.) |
-| LongDescription | Full description |
+| LongDescription  | Full description                            |
 
 ---
 
 ## CSV Files
 
 ### `canadian_cities.csv` (Reference Data - Seeded)
+
 Used to seed the Cities table.
+
 - City Id
 - City Name
 - Time Zone (Windows time zone ID)
 
 ### `event_code_definitions.csv` (Reference Data - Seeded)
+
 Used to seed the EventCodeDefinitions table.
+
 - Event Code (W, A, D, Z)
 - Event Description (Released, Arrived, Departed, Placed)
 - Long Description (Full text explanation)
 
 ### `equipment_events.csv` (Transactional Data - User Upload)
+
 Uploaded via the UI.
+
 - Equipment Id
 - Event Code
 - Event Time (local)
@@ -122,19 +135,20 @@ Uploaded via the UI.
 
 ## Edge Case Handling
 
-| Scenario | Behavior |
-|--------|----------|
-| `W` without matching `Z` | Trip not created, warning logged |
-| `Z` without open trip | Event skipped, warning logged |
-| Multiple `W` before `Z` | Previous trip considered invalid, new trip started |
-| Invalid CSV rows | Row skipped, import continues |
-| Duplicate uploads | Not prevented (see TODOs) |
+| Scenario                 | Behavior                                           |
+| ------------------------ | -------------------------------------------------- |
+| `W` without matching `Z` | Trip not created, warning logged                   |
+| `Z` without open trip    | Event skipped, warning logged                      |
+| Multiple `W` before `Z`  | Previous trip considered invalid, new trip started |
+| Invalid CSV rows         | Row skipped, import continues                      |
+| Duplicate uploads        | Not prevented (see TODOs)                          |
 
 ---
 
 ## API Endpoints
 
 ### Import Events
+
 `POST /api/railcar-trips/import`
 
 - Accepts CSV upload
@@ -146,11 +160,13 @@ Uploaded via the UI.
   - Warnings/errors count
 
 ### Get Trips
+
 `GET /api/railcar-trips`
 
 - Returns trip list for grid display
 
 ### Get Trip Events (Bonus)
+
 `GET /api/railcar-trips/{tripId}/events`
 
 - Returns ordered events for selected trip
@@ -158,6 +174,7 @@ Uploaded via the UI.
 ---
 
 ## Security Considerations
+
 - No authentication required for this assessment
 - File upload validation:
   - CSV-only
@@ -168,6 +185,7 @@ Uploaded via the UI.
 ---
 
 ## TODOs / Future Improvements
+
 - **Add duplicate event detection** - Prevent re-importing the same events
   - Define uniqueness criteria (EquipmentId + EventCode + EventTime + CityId)
   - Skip duplicates or warn user with count
@@ -188,14 +206,16 @@ Uploaded via the UI.
 ---
 
 ## How to Run
+
 1. Clone the repository
 2. Ensure .NET SDK is installed
 3. Run database migrations
-4. Start the Server project
-5. Start the Client project
+4. Start the Server project (API)
+5. Start the Client project (WebAssembly)
 6. Navigate to the Railcar Trips page and upload `equipment_events.csv`
 
 ---
 
 ## Notes
+
 This solution is intentionally scoped to demonstrate architecture, data handling, and reasoning rather than a fully production-hardened system. Clear TODOs and assumptions are included to reflect design considerations that would be addressed in a full implementation.
