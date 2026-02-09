@@ -181,12 +181,3 @@ wwwroot/lib/
 
 # Keep important CSV data files (reference data)
 !RailcarTripManagement.Api/Data/*.csv
-
-# Exclude utility/helper files (local development only)
-COMMIT_STRATEGY.md
-PROGRESSIVE_COMMITS_QUICKSTART.md
-Do-ProgressiveCommit.ps1
-Recreate-Database.ps1
-SHARED_PROJECT_SOLUTION_FIX.md
-FIX_MISSING_TABLE.md
-COMMIT_SCRIPT_REVIEW.md
