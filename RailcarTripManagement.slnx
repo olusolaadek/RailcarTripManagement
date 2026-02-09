@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Resources/">
+    <File Path="L:/OneDrive/Documents/CREDENTIALS/My CV latest/Applications/2026/AltaGas/Rim - Mindwire/test-coding/canadian_cities.csv" />
+    <File Path="L:/OneDrive/Documents/CREDENTIALS/My CV latest/Applications/2026/AltaGas/Rim - Mindwire/test-coding/equipment_events.csv" />
+    <File Path="L:/OneDrive/Documents/CREDENTIALS/My CV latest/Applications/2026/AltaGas/Rim - Mindwire/test-coding/event_code_definitions.csv" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="RailcarTripManagement.Api/RailcarTripManagement.Api.csproj" />
+  <Project Path="RailcarTripManagement.Client/RailcarTripManagement.Client.csproj" />
+  <Project Path="RailcarTripManagement.Shared/RailcarTripManagement.Shared.csproj" />
+</Solution>
