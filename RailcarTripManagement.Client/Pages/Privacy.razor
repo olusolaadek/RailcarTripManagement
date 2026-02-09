@@ -1,0 +1,163 @@
+@page "/privacy"
+
+<PageTitle>Privacy Policy - Railcar Trip Management</PageTitle>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">Privacy Policy</h1>
+            
+            <p class="lead">
+                Last updated: <strong>@DateTime.Now.ToString("MMMM dd, yyyy")</strong>
+            </p>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Information We Collect</h3>
+                    <p>
+                        The Railcar Trip Management system processes the following types of information:
+                    </p>
+                    <ul>
+                        <li><strong>Equipment Data:</strong> Equipment identifiers, event codes, and timestamps</li>
+                        <li><strong>Location Data:</strong> City information and time zones for trip processing</li>
+                        <li><strong>Trip Records:</strong> Automatically generated trip data including origins, destinations, and durations</li>
+                        <li><strong>Import Metadata:</strong> File names, import timestamps, and processing results</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">How We Use Your Information</h3>
+                    <p>
+                        The information collected is used exclusively for:
+                    </p>
+                    <ul>
+                        <li>Processing equipment events into trip records</li>
+                        <li>Generating reports and analytics on equipment movements</li>
+                        <li>Maintaining historical trip data for operational purposes</li>
+                        <li>Validating data quality and identifying processing issues</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Data Storage</h3>
+                    <p>
+                        All data is stored securely in a SQLite database on the application server. 
+                        The system implements the following security measures:
+                    </p>
+                    <ul>
+                        <li>Database access restricted to authorized application services only</li>
+                        <li>File upload validation and size restrictions</li>
+                        <li>SQL injection protection through Entity Framework Core</li>
+                        <li>HTTPS encryption for all client-server communication</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Data Retention</h3>
+                    <p>
+                        Trip and event data is retained for operational and historical purposes. 
+                        Data retention policies should be configured according to your organization's 
+                        requirements and applicable regulations.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Cookies and Tracking</h3>
+                    <p>
+                        This application uses minimal session storage for:
+                    </p>
+                    <ul>
+                        <li>Maintaining application state during your session</li>
+                        <li>Storing user interface preferences (if applicable)</li>
+                    </ul>
+                    <p class="mb-0">
+                        We do not use third-party tracking or analytics cookies.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Data Sharing</h3>
+                    <p class="mb-0">
+                        We do not share, sell, or distribute your data to third parties. 
+                        All data remains within the confines of this application system and 
+                        is accessible only to authorized users within your organization.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Your Rights</h3>
+                    <p>
+                        You have the right to:
+                    </p>
+                    <ul class="mb-0">
+                        <li>Access your data stored in the system</li>
+                        <li>Request corrections to inaccurate data</li>
+                        <li>Request deletion of data (subject to operational requirements)</li>
+                        <li>Export data in standard formats</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Security Measures</h3>
+                    <p>
+                        We implement industry-standard security practices:
+                    </p>
+                    <ul class="mb-0">
+                        <li>HTTPS/TLS encryption for all communications</li>
+                        <li>Input validation and sanitization</li>
+                        <li>Parameterized database queries to prevent SQL injection</li>
+                        <li>File upload restrictions and validation</li>
+                        <li>CORS policies to prevent unauthorized access</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Changes to This Policy</h3>
+                    <p class="mb-0">
+                        This privacy policy may be updated periodically to reflect changes in 
+                        functionality or legal requirements. The "Last updated" date at the top 
+                        of this page indicates when the policy was last revised.
+                    </p>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <h5 class="alert-heading">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Development Version Notice
+                </h5>
+                <p class="mb-0">
+                    This is a development/assessment version of the application. For production use, 
+                    additional security measures, authentication, and compliance features should be 
+                    implemented according to your organization's requirements and applicable regulations 
+                    (GDPR, CCPA, etc.).
+                </p>
+            </div>
+
+            <div class="card border-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Contact Information</h5>
+                    <p class="mb-0">
+                        For questions about this privacy policy or how your data is handled, 
+                        please contact your system administrator or data protection officer.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

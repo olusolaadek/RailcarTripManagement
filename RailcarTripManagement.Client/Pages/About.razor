@@ -1,0 +1,113 @@
+@page "/about"
+
+<PageTitle>About Us - Railcar Trip Management</PageTitle>
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="mb-4">About Railcar Trip Management</h1>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Overview</h3>
+                    <p class="card-text">
+                        Railcar Trip Management is a comprehensive solution for tracking and managing railroad equipment 
+                        movements across Canada. Our system processes equipment events and automatically generates 
+                        trip records with accurate timing and location information.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Key Features</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <strong>Automated Trip Processing:</strong> Process equipment events into complete trips 
+                            using industry-standard W (Released) and Z (Placed) event codes
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Time Zone Management:</strong> Automatic conversion of local times to UTC across 
+                            multiple Canadian time zones
+                        </li>
+                        <li class="list-group-item">
+                            <strong>CSV Import:</strong> Bulk upload equipment events via CSV files with comprehensive 
+                            validation and error reporting
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Trip Details:</strong> View complete event history for any trip with chronological ordering
+                        </li>
+                        <li class="list-group-item">
+                            <strong>Real-time Reporting:</strong> Instant feedback on import results including warnings 
+                            for incomplete trips
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">Technology Stack</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Front-End</h5>
+                            <ul>
+                                <li>Blazor WebAssembly</li>
+                                <li>Bootstrap 5</li>
+                                <li>.NET 10</li>
+                                <li>C# 14</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Back-End</h5>
+                            <ul>
+                                <li>ASP.NET Core Web API</li>
+                                <li>Entity Framework Core</li>
+                                <li>SQLite Database</li>
+                                <li>CsvHelper Library</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-title">How It Works</h3>
+                    <ol class="mb-0">
+                        <li class="mb-2">
+                            <strong>Upload Events:</strong> Import CSV files containing equipment events with 
+                            timestamps, locations, and event codes
+                        </li>
+                        <li class="mb-2">
+                            <strong>Automatic Processing:</strong> The system groups events by equipment, converts 
+                            times to UTC, and applies business rules
+                        </li>
+                        <li class="mb-2">
+                            <strong>Trip Generation:</strong> Events are processed to create complete trips from 
+                            origin to destination
+                        </li>
+                        <li class="mb-2">
+                            <strong>Data Validation:</strong> Comprehensive validation ensures data quality with 
+                            warnings for incomplete trips
+                        </li>
+                        <li class="mb-0">
+                            <strong>View & Analyze:</strong> Browse trips, view detailed event histories, and 
+                            analyze trip durations
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <h5 class="alert-heading">
+                    <i class="bi bi-info-circle-fill me-2"></i>Need Help?
+                </h5>
+                <p class="mb-0">
+                    For questions about trip processing, data formats, or system functionality, 
+                    please refer to the documentation or contact support.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
