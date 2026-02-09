@@ -231,3 +231,11 @@ Uploaded via the UI.
 ## Notes
 
 This solution is intentionally scoped to demonstrate architecture, data handling, and reasoning rather than a fully production-hardened system. Clear TODOs and assumptions are included to reflect design considerations that would be addressed in a full implementation.
+
+---
+
+## Author
+
+### Festus O. Adekunle
+
+- Repository: [RailcarTripManagement](https://github.com/olusolaadek/RailcarTripManagement)
