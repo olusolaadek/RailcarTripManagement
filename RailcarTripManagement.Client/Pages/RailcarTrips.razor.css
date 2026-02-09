@@ -1,0 +1,66 @@
+/* Railcar Trips Page Specific Styles */
+
+.table-hover tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+.table-active {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+.modal.show {
+    display: block;
+    overflow-y: auto;
+}
+
+/* File upload styling */
+.form-control:disabled {
+    background-color: #e9ecef;
+    opacity: 0.6;
+}
+
+/* Responsive table improvements */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+    
+    .btn-sm {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Loading state improvements */
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Event badges in modal */
+.badge {
+    font-size: 0.7rem;
+    vertical-align: middle;
+}
+
+/* Alert box improvements */
+.alert ul {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.alert ul li {
+    margin-bottom: 0.25rem;
+}
+
+/* Card improvements */
+.card-header h3 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* Small text for metadata */
+.text-muted small {
+    font-size: 0.875rem;
+}
