@@ -1,4 +1,16 @@
-﻿### Client (Blazor WASM)
+﻿# Railcar Trip Management
+
+## A .NET 10 Blazor WebAssembly Full stack App
+
+### Docs
+
+- Documentation for the project
+
+### Resources
+
+- Contains data files used in the project
+
+### Client (Blazor WASM)
 
 - Railcar Trips page
 - CSV upload UI
