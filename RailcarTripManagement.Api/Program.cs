@@ -12,10 +12,14 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowBlazorClient", policy =>
     {
-        policy.WithOrigins("https://localhost:7000", "http://localhost:5000", "https://localhost:5001")
+        policy.WithOrigins(
+                "https://localhost:7294",
+                "http://localhost:5177",
+                "http://127.0.0.1:5177",
+                "https://127.0.0.1:7294")
               .AllowAnyMethod()
               .AllowAnyHeader();
-        
+
         // TODO: In production, restrict origins to actual client URL
         if (builder.Environment.IsDevelopment())
         {
@@ -27,10 +31,10 @@ builder.Services.AddCors(options =>
 // Configure SQLite database
 builder.Services.AddDbContext<RailcarDbContext>(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
         ?? "Data Source=railcar_trips.db";
     options.UseSqlite(connectionString);
-    
+
     // Enable detailed errors in development
     if (builder.Environment.IsDevelopment())
     {
