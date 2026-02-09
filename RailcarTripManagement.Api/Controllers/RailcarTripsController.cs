@@ -111,9 +111,10 @@ public class RailcarTripsController : ControllerBase
     /// Import equipment events from CSV file
     /// </summary>
     [HttpPost("import")]
+    [Consumes("multipart/form-data")]
     [ProducesResponseType(typeof(ImportResultDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ImportResultDto>> ImportEvents([FromForm] IFormFile file)
+    public async Task<ActionResult<ImportResultDto>> ImportEvents(IFormFile file)
     {
         var result = new ImportResultDto { Success = false };
         
