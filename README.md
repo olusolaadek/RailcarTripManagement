@@ -168,7 +168,16 @@ Uploaded via the UI.
 ---
 
 ## TODOs / Future Improvements
-- Add idempotency (prevent duplicate imports)
+- **Add duplicate event detection** - Prevent re-importing the same events
+  - Define uniqueness criteria (EquipmentId + EventCode + EventTime + CityId)
+  - Skip duplicates or warn user with count
+  - Add database indexes for efficient duplicate checking
+- **Implement Azure Event Hub / Message-based ingestion** - Eliminate manual CSV uploads
+  - Real-time event streaming from source systems
+  - Azure Event Hub or Service Bus integration
+  - Automatic processing and trip calculation
+  - Scale to handle high-volume event streams
+- Add idempotency (prevent duplicate imports with batch tracking)
 - Add pagination and filtering to trips grid
 - Add unit tests for trip processing logic
 - Improve handling of Windows ↔ IANA time zone mapping
